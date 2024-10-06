@@ -48,19 +48,24 @@ title: Crown Commercial Service Customer Unique Reference Numbers (URNs)
 <body>
   <h1>{{ page.title }}</h1>
   <table>
-    {% for row in site.data.urns -%}
-      {%- if forloop.first -%}
-        <tr>
-          {%- for pair in row -%}
-            <th>{{ pair[0] }}</th>
-          {%- endfor -%}
-        </tr>
-      {%- endif -%}
-
-      {%- tablerow pair in row -%}
-        {{ pair[1] }}
-      {%- endtablerow -%}
-    {%- endfor -%}
+    <thead>
+      {% for row in site.data.urns limit:1 -%}
+      <tr>
+        {%- for pair in row -%}
+        <th scope="col">{{ pair[0] }}</th>
+        {%- endfor -%}
+      </tr>
+      {% endfor -%}
+    </thead>
+    <tbody>
+      {%- for row in site.data.urns offset:1 -%}
+      <tr>
+        {%- for pair in row -%}
+        <td>{{ pair[1] }}</td>
+        {%- endfor -%}
+      </tr>
+      {% endfor -%}
+    </tbody>
   </table>
 </body>
 
