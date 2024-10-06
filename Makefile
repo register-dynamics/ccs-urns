@@ -1,7 +1,7 @@
 HQ ?= hq
 
 _site/: _data/urns.csv
-	bundle exec jekyll build --safe
+	bundle exec jekyll build --safe && cp $^ $@
 
 _data/:
 	mkdir -p $@
