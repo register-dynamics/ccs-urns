@@ -67,7 +67,7 @@ title: Crown Commercial Service Customer Unique Reference Numbers (URNs)
       {% endfor -%}
     </thead>
     <tbody>
-      {%- for row in site.data.urns offset:1 -%}
+      {%- for row in site.data.urns -%}
       <tr>
         {%- for pair in row -%}
         <td>{{ pair[1] }}</td>
